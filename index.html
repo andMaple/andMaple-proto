@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>& Maple Flavor Wheel Prototype</title>
+  <style>
+    body { font-family: sans-serif; padding: 1em; }
+    select { width: 100%; height: 200px; }
+    button { margin-top: 0.5em; padding: 0.5em 1em; }
+    #result { margin-top: 1em; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Pick Your Spices</h1>
+  <select id="spiceSelect" multiple></select>
+  <br />
+  <button id="genBlend">Generate Blend</button>
+  <div id="result"></div>
+
+  <script>
+    const jsonUrl = 'https://raw.githubusercontent.com/andMaple/andMaple/main/spices.json';
+    const selectEl = document.getElementById('spiceSelect');
+    const resultEl = document.getElementById('result');
+    const genBtn = document.getElementById('genBlend');
+
+    // 1) Fetch and populate spice list
+    fetch(jsonUrl)
+      .then(resp => resp.json())
+      .then(spices => {
+        spices.forEach(s => {
+          const opt = document.createElement('option');
+          opt.value = s['Spice Name'];
+          opt.textContent = s['Spice Name'];
+          selectEl.appendChild(opt);
+        });
+      })
+      .catch(err => resultEl.textContent = 'Error loading spices: ' + err);
+
+    // 2) Dummy click handler
+    genBtn.addEventListener('click', () => {
+      const chosen = Array.from(selectEl.selectedOptions).map(o => o.value);
+      if (!chosen.length) {
+        resultEl.textContent = 'Select at least one spice.';
+        return;
+      }
+      // Replace this with real GPT-4 call next
+      resultEl.textContent =
+        `You selected: ${chosen.join(', ')}\n\n` +
+        `-- DUMMY BLEND --\n` +
+        `Blend Name: “Example Mix”\n` +
+        `40% ${chosen[0]}\n` +
+        `30% ${chosen[1] || chosen[0]}\n` +
+        `30% ${chosen[2] || chosen[0]}\n` +
+        `Tasting Notes: Balanced & flavorful.`;
+    });
+  </script>
+</body>
+</html>
