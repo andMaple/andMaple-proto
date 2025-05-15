@@ -1,0 +1,182 @@
+[
+  {
+    "Spice Name": "Black Peppercorns",
+    "Category": "Pepper & Heat",
+    "Flavor Notes": "Pungent, woody, sharp heat",
+    "Intensity": 7,
+    "Image URL": "https://example.com/black_pepper.jpg",
+    "Frontier SKU": "FP-001",
+    "Use Cases": "Steaks, marinades, soups"
+  },
+  {
+    "Spice Name": "Crushed Red Pepper",
+    "Category": "Pepper & Heat",
+    "Flavor Notes": "Fruity fire, lingering warmth",
+    "Intensity": 6,
+    "Image URL": "https://example.com/red_pepper.jpg",
+    "Frontier SKU": "FP-002",
+    "Use Cases": "Pizza, pasta sauces, stir-fries"
+  },
+  {
+    "Spice Name": "New Mexico Chili Powder",
+    "Category": "Pepper & Heat",
+    "Flavor Notes": "Earthy, mild heat, bright red color",
+    "Intensity": 5,
+    "Image URL": "https://example.com/nm_chili.jpg",
+    "Frontier SKU": "FP-003",
+    "Use Cases": "Chili, rubs, Tex-Mex dishes"
+  },
+  {
+    "Spice Name": "Chipotle Powder",
+    "Category": "Pepper & Heat",
+    "Flavor Notes": "Smoky, medium heat, fruity undertones",
+    "Intensity": 6,
+    "Image URL": "https://example.com/chipotle.jpg",
+    "Frontier SKU": "FP-004",
+    "Use Cases": "BBQ rubs, sauces, tacos"
+  },
+  {
+    "Spice Name": "Cinnamon (ground)",
+    "Category": "Aromatic & Sweet",
+    "Flavor Notes": "Warm, sweet, woody",
+    "Intensity": 4,
+    "Image URL": "https://example.com/cinnamon.jpg",
+    "Frontier SKU": "FP-005",
+    "Use Cases": "Baked goods, oatmeal, curries"
+  },
+  {
+    "Spice Name": "Ginger (ground)",
+    "Category": "Aromatic & Sweet",
+    "Flavor Notes": "Spicy-sweet, zesty",
+    "Intensity": 5,
+    "Image URL": "https://example.com/ginger.jpg",
+    "Frontier SKU": "FP-006",
+    "Use Cases": "Cookies, marinades, teas"
+  },
+  {
+    "Spice Name": "Fennel Seed",
+    "Category": "Aromatic & Sweet",
+    "Flavor Notes": "Anise-like, sweet, licorice",
+    "Intensity": 3,
+    "Image URL": "https://example.com/fennel.jpg",
+    "Frontier SKU": "FP-007",
+    "Use Cases": "Sausages, breads, seafood"
+  },
+  {
+    "Spice Name": "Cardamom Pods",
+    "Category": "Aromatic & Sweet",
+    "Flavor Notes": "Citrusy, floral, warm",
+    "Intensity": 4,
+    "Image URL": "https://example.com/cardamom.jpg",
+    "Frontier SKU": "FP-008",
+    "Use Cases": "Breads, chai, desserts"
+  },
+  {
+    "Spice Name": "Rosemary (dried)",
+    "Category": "Herbs & Savory",
+    "Flavor Notes": "Piney, resinous, woody",
+    "Intensity": 5,
+    "Image URL": "https://example.com/rosemary.jpg",
+    "Frontier SKU": "FP-009",
+    "Use Cases": "Roasts, potatoes, focaccia"
+  },
+  {
+    "Spice Name": "Thyme",
+    "Category": "Herbs & Savory",
+    "Flavor Notes": "Earthy, slightly minty",
+    "Intensity": 4,
+    "Image URL": "https://example.com/thyme.jpg",
+    "Frontier SKU": "FP-010",
+    "Use Cases": "Soups, stews, poultry"
+  },
+  {
+    "Spice Name": "Oregano",
+    "Category": "Herbs & Savory",
+    "Flavor Notes": "Herbaceous, peppery",
+    "Intensity": 4,
+    "Image URL": "https://example.com/oregano.jpg",
+    "Frontier SKU": "FP-011",
+    "Use Cases": "Pizza, Italian sauces, marinades"
+  },
+  {
+    "Spice Name": "Bay Leaves",
+    "Category": "Herbs & Savory",
+    "Flavor Notes": "Bitter-sweet, herbal",
+    "Intensity": 2,
+    "Image URL": "https://example.com/bay_leaf.jpg",
+    "Frontier SKU": "FP-012",
+    "Use Cases": "Stocks, braises, sauces"
+  },
+  {
+    "Spice Name": "Garlic Powder",
+    "Category": "All-Purpose Staples",
+    "Flavor Notes": "Pungent, savory",
+    "Intensity": 6,
+    "Image URL": "https://example.com/garlic_powder.jpg",
+    "Frontier SKU": "FP-013",
+    "Use Cases": "Almost everything savory"
+  },
+  {
+    "Spice Name": "Onion Powder",
+    "Category": "All-Purpose Staples",
+    "Flavor Notes": "Sweet, aromatic",
+    "Intensity": 5,
+    "Image URL": "https://example.com/onion_powder.jpg",
+    "Frontier SKU": "FP-014",
+    "Use Cases": "Spice blends, soups, rubs"
+  },
+  {
+    "Spice Name": "Mustard Seed",
+    "Category": "All-Purpose Staples",
+    "Flavor Notes": "Sharp, tangy heat when cracked",
+    "Intensity": 5,
+    "Image URL": "https://example.com/mustard_seed.jpg",
+    "Frontier SKU": "FP-015",
+    "Use Cases": "Pickles, rubs, vinaigrettes"
+  },
+  {
+    "Spice Name": "Dried Lemon Peel",
+    "Category": "Citrus & Brightness",
+    "Flavor Notes": "Bright, zesty, bitter-sweet",
+    "Intensity": 3,
+    "Image URL": "https://example.com/lemon_peel.jpg",
+    "Frontier SKU": "FP-016",
+    "Use Cases": "Seafood, desserts, drinks"
+  },
+  {
+    "Spice Name": "Dried Orange Peel",
+    "Category": "Citrus & Brightness",
+    "Flavor Notes": "Sweet-tart, floral",
+    "Intensity": 3,
+    "Image URL": "https://example.com/orange_peel.jpg",
+    "Frontier SKU": "FP-017",
+    "Use Cases": "Baking, dressings, cocktails"
+  },
+  {
+    "Spice Name": "Smoked Paprika",
+    "Category": "Specialty “Maple-Friendly”",
+    "Flavor Notes": "Sweet, smoky, mild heat",
+    "Intensity": 5,
+    "Image URL": "https://example.com/smoked_paprika.jpg",
+    "Frontier SKU": "FP-018",
+    "Use Cases": "BBQ, rubs, stews"
+  },
+  {
+    "Spice Name": "Sweet Hungarian Paprika",
+    "Category": "Specialty “Maple-Friendly”",
+    "Flavor Notes": "Sweet, vibrant color",
+    "Intensity": 3,
+    "Image URL": "https://example.com/hungarian_paprika.jpg",
+    "Frontier SKU": "FP-019",
+    "Use Cases": "Goulash, rubs, sauces"
+  },
+  {
+    "Spice Name": "Ground Rosemary",
+    "Category": "Specialty “Maple-Friendly”",
+    "Flavor Notes": "Concentrated pine-herb note",
+    "Intensity": 5,
+    "Image URL": "https://example.com/ground_rosemary.jpg",
+    "Frontier SKU": "FP-020",
+    "Use Cases": "Breads, rubs, compound butters"
+  }
+]
