@@ -2,56 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>& Maple Flavor Wheel Prototype</title>
+  <title>& Maple Flavor Wheel</title>
   <style>
-    body { font-family: sans-serif; padding: 1em; }
+    body { font-family: sans-serif; padding: 1em; max-width: 600px; margin: auto; }
     select { width: 100%; height: 200px; }
-    button { margin-top: 0.5em; padding: 0.5em 1em; }
+    button { margin-top: .5em; padding: .5em 1em; }
     #result { margin-top: 1em; white-space: pre-wrap; }
   </style>
 </head>
 <body>
   <h1>Pick Your Spices</h1>
-  <select id="spiceSelect" multiple></select>
-  <br />
+  <select id="spiceSelect" multiple></select><br/>
   <button id="genBlend">Generate Blend</button>
   <div id="result"></div>
 
   <script>
-    const jsonUrl = 'https://raw.githubusercontent.com/andMaple/andMaple/main/spices.json';
+    // 1) Inline spice data
+    const spices = [
+      { "Spice Name":"Black Peppercorns", "Intensity":7 },
+      { "Spice Name":"Crushed Red Pepper", "Intensity":6 },
+      { "Spice Name":"New Mexico Chili Powder", "Intensity":5 },
+      { "Spice Name":"Chipotle Powder", "Intensity":6 },
+      { "Spice Name":"Cinnamon (ground)", "Intensity":4 },
+      { "Spice Name":"Ginger (ground)", "Intensity":5 },
+      { "Spice Name":"Fennel Seed", "Intensity":3 },
+      { "Spice Name":"Cardamom Pods", "Intensity":4 },
+      { "Spice Name":"Rosemary (dried)", "Intensity":5 },
+      { "Spice Name":"Thyme", "Intensity":4 },
+      { "Spice Name":"Oregano", "Intensity":4 },
+      { "Spice Name":"Bay Leaves", "Intensity":2 },
+      { "Spice Name":"Garlic Powder", "Intensity":6 },
+      { "Spice Name":"Onion Powder", "Intensity":5 },
+      { "Spice Name":"Mustard Seed", "Intensity":5 },
+      { "Spice Name":"Dried Lemon Peel", "Intensity":3 },
+      { "Spice Name":"Dried Orange Peel", "Intensity":3 },
+      { "Spice Name":"Smoked Paprika", "Intensity":5 },
+      { "Spice Name":"Sweet Hungarian Paprika", "Intensity":3 },
+      { "Spice Name":"Ground Rosemary", "Intensity":5 }
+    ];
+
+    // 2) Render the select list
     const selectEl = document.getElementById('spiceSelect');
-    const resultEl = document.getElementById('result');
-    const genBtn = document.getElementById('genBlend');
+    spices.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s["Spice Name"];
+      opt.textContent = s["Spice Name"];
+      selectEl.appendChild(opt);
+    });
 
-    // 1) Fetch and populate spice list
-    fetch(jsonUrl)
-      .then(resp => resp.json())
-      .then(spices => {
-        spices.forEach(s => {
-          const opt = document.createElement('option');
-          opt.value = s['Spice Name'];
-          opt.textContent = s['Spice Name'];
-          selectEl.appendChild(opt);
-        });
-      })
-      .catch(err => resultEl.textContent = 'Error loading spices: ' + err);
-
-    // 2) Dummy click handler
-    genBtn.addEventListener('click', () => {
+    // 3) Hook up the button
+    document.getElementById('genBlend').addEventListener('click', async () => {
       const chosen = Array.from(selectEl.selectedOptions).map(o => o.value);
       if (!chosen.length) {
-        resultEl.textContent = 'Select at least one spice.';
-        return;
+        return document.getElementById('result').textContent = 'Select at least one spice.';
       }
-      // Replace this with real GPT-4 call next
-      resultEl.textContent =
-        `You selected: ${chosen.join(', ')}\n\n` +
-        `-- DUMMY BLEND --\n` +
-        `Blend Name: “Example Mix”\n` +
-        `40% ${chosen[0]}\n` +
-        `30% ${chosen[1] || chosen[0]}\n` +
-        `30% ${chosen[2] || chosen[0]}\n` +
-        `Tasting Notes: Balanced & flavorful.`;
+      document.getElementById('result').textContent = 'Generating blend…';
+
+      // 4) Call GPT-4
+      const resp = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer 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'
+        },
+        body: JSON.stringify({
+          model: 'gpt-4',
+          messages: [
+            { role: 'system', content: 'You’re an expert spice blender. Output JSON only.' },
+            { role: 'user', content:
+              `Given these spices: ${chosen.join(', ')}\n` +
+              `Return {"name":string, "breakdown":[{"spice":string,"pct":number}], "notes":string}.`
+            }
+          ],
+          temperature: 0.7,
+          max_tokens: 200
+        })
+      });
+
+      const { choices } = await resp.json();
+      let data;
+      try {
+        data = JSON.parse(choices[0].message.content);
+      } catch (e) {
+        return document.getElementById('result').textContent = 'Error parsing AI response.';
+      }
+
+      // 5) Display the blend
+      let out = `Blend Name: ${data.name}\n`;
+      data.breakdown.forEach(item => {
+        out += `${item.pct}% ${item.spice}\n`;
+      });
+      out += `Notes: ${data.notes}`;
+      document.getElementById('result').textContent = out;
     });
   </script>
 </body>
